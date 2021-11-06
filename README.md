@@ -25,3 +25,13 @@ Projeto Completo Com Node.JS e  React.JS  Utilizando a famosa Stack MERN:
 A instalação é bem simples, só entrar no site e fazer o dowload
 Insomnia é uma ferramenta cliente de API REST para utilizar os métodos HTTP: GET, POST, PUT, DELETE entre outros
 
+## Commands used in the backend
+(é obrigatório o NodeJS está instalado na máquina)
+
+1. `npm init -y` 
+(esse comando cria o package.json)
+
+2. `npm install express` 
+(Framework que ajuda nas aplicações backend, facilitando o request e o response)
+
+3. 
