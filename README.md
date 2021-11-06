@@ -19,4 +19,9 @@ Projeto Completo Com Node.JS e  React.JS  Utilizando a famosa Stack MERN:
 
 `*mongodb+srv://usuario:<password>@cluster0.xkef2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority*`
 
-é essa sua conexão com o mongodb onde irá substituir o nome usuario pelo usuario q vc criou e a senha é a senha q vc criou
+é essa sua conexão com o mongodb onde irá substituir o nome usuario pelo usuario q vc criou e a senha é a senha q vc criou.
+
+## Installation Insominia
+A instalação é bem simples, só entrar no site e fazer o dowload
+Insomnia é uma ferramenta cliente de API REST para utilizar os métodos HTTP: GET, POST, PUT, DELETE entre outros
+
