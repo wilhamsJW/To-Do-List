@@ -19,7 +19,9 @@ Projeto Completo Com Node.JS e  React.JS  Utilizando a famosa Stack MERN:
 
 `*mongodb+srv://usuario:<password>@cluster0.xkef2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority*`
 
-é essa sua conexão com o mongodb onde irá substituir o nome usuario pelo usuario q vc criou e a senha é a senha q vc criou.
+é essa sua conexão com o mongodb onde irá substituir o nome usuario pelo usuario q vc criou e a senha é a senha q vc criou & myFirstDataBase é o banco q vc irá criar no item `6` abaixo
+
+6. Vá em `*Browser Collections*` e vamos criar uma collections que é semelhante a uma tabela do banco de dados SQL, clik em `*Add my own data*` irá abrir um modal para vc colocar um `Database Name` e `Collection Name`, aqui eu dei ambos os nomes para `annotations` e com isso clik em `create`
 
 ## Installation Insominia
 A instalação é bem simples, só entrar no site e fazer o dowload
@@ -40,5 +42,8 @@ Insomnia é uma ferramenta cliente de API REST para utilizar os métodos HTTP: G
 4. Antes de instalar o nodemon usava o comando: `node index.js` para rodar o servidor, agora após a instalação do `nodemon` se usa `npm run dev`
 PQ aconteceu isso? pq fui em package.json e adicionei nos scripts a seguinte linha: 
 `"dev": "nodemon src/index.js",`
+
+5. `npm install mongoose`
+(mongoose facilita a criação de esquemas para o database mongoodb e facilita para criar registros, buscar registro e etc...)
 
 
