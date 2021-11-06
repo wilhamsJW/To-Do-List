@@ -8,7 +8,8 @@ const connection = mongoose.connect(dbCongig, {
     // userNewUrlParser: true, // essas duas flags são apenas para evitar alguns avisos
     // useUnifiedTopology: true
 
-    useNewUrlParser: true, useUnifiedTopology: true
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
     
 });
 

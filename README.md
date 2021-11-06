@@ -23,6 +23,8 @@ Projeto Completo Com Node.JS e  React.JS  Utilizando a famosa Stack MERN:
 
 6. Vá em `*Browser Collections*` e vamos criar uma collections que é semelhante a uma tabela do banco de dados SQL, clik em `*Add my own data*` irá abrir um modal para vc colocar um `Database Name` e `Collection Name`, aqui eu dei ambos os nomes para `annotations` e com isso clik em `create`
 
+7. Fui em `Browser collection` e em `annotations` e clikei em `insert document` e no modal inseri dados parecidos com que pretendo mandar ao db, fiz isso para teste, para que eu pudesse buscar essa informações e lê-las para validação do read e do db obviamente, esse teste aconte no `AnnotationController.js`
+
 ## Installation Insominia
 A instalação é bem simples, só entrar no site e fazer o dowload
 Insomnia é uma ferramenta cliente de API REST para utilizar os métodos HTTP: GET, POST, PUT, DELETE entre outros

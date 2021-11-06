@@ -1,4 +1,4 @@
-const monogoose = require('monogoose');
+const mongoose = require('mongoose');
 
 const AnnotationsDataSchema = new mongoose.Schema({
     title: String,
