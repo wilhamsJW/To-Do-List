@@ -26,12 +26,19 @@ A instalação é bem simples, só entrar no site e fazer o dowload
 Insomnia é uma ferramenta cliente de API REST para utilizar os métodos HTTP: GET, POST, PUT, DELETE entre outros
 
 ## Commands used in the backend
-(é obrigatório o NodeJS está instalado na máquina)
+(é obrigatório o NodeJS E NPM está instalado na máquina.)
 
 1. `npm init -y` 
 (esse comando cria o package.json)
 
 2. `npm install express` 
-(Framework que ajuda nas aplicações backend, facilitando o request e o response)
+(Framework que ajuda nas aplicações backend, facilitando o request e o response.)
 
-3. 
+3. `npm install nodemon -D`
+(-D siginifica dependeçia a ser instalada apenas para desenvovlimento e o nodemon serve para ouvir nossas alterações sem a necessidade de ficar resetando o servidor manualmente, essa dependeçia não precisa ir para produção pq o servidor lá não fica ouvindo alterações.)
+
+4. Antes de instalar o nodemon usava o comando: `node index.js` para rodar o servidor, agora após a instalação do `nodemon` se usa `npm run dev`
+PQ aconteceu isso? pq fui em package.json e adicionei nos scripts a seguinte linha: 
+`"dev": "nodemon src/index.js",`
+
+
