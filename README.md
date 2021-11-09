@@ -8,7 +8,6 @@ Projeto Completo Com Node.JS e  React.JS  Utilizando a famosa Stack MERN:
 
 1. Acesse o site oficial do MongoDb e se cadastre
 
-
 2. Selecione a opção FREE e clik em `Criar Cluster`
 
 3. Clike em `*Connect*` dentro do modal que ir'abrir clik em `*Allow Acess from Anywhre*` ou seja permitir acesso de qualquer lugar (como se trata de um projeto de estudo não precisa colocar essa configuração para que o acesso seja de um único endereço de IP)
@@ -52,5 +51,11 @@ PQ aconteceu isso? pq fui em package.json e adicionei nos scripts a seguinte lin
 Vá no index e adicone o cors com: `const cors = require('cors');`
 e depois use-o com: `app.use(cors());`
 Obs: deve ficar antes do: "app.use(express.json());"  e do "app.use(routes);"
+
+### Installation FrontEnd
+
+1. npx create-react-app frontend (Para criação do projeto e seus múdulos, dẽ o comando na raíz da pasta.)
+
+2. npm satart (para rodar o projeto)
 
 
