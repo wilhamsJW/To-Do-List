@@ -15,7 +15,7 @@ mongoose.connect("mongodb+srv://usuario:usuario@cluster0.xkef2.mongodb.net/annot
 
 // Para comunucação entre front e back, caso não esteja isntalado o fron no console irá dá erro no console
 // obs: deve ficar antes do: "app.use(express.json());"  e do "app.use(routes);"
-app.use(cors())
+app.use(cors());
 
 app.use(express.json());
 

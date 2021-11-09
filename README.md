@@ -48,6 +48,9 @@ PQ aconteceu isso? pq fui em package.json e adicionei nos scripts a seguinte lin
 5. `npm install mongoose`
 (mongoose facilita a criação de esquemas para o database mongoodb e facilita para criar registros, buscar registro e etc...)
 
-6. npm install cors -> responsável por fazer a comunicação entre o fronend e o backend
+6. `npm install cors` -> responsável por fazer a comunicação entre o fronend e o backend
+Vá no index e adicone o cors com: `const cors = require('cors');`
+e depois use-o com: `app.use(cors());`
+Obs: deve ficar antes do: "app.use(express.json());"  e do "app.use(routes);"
 
 
