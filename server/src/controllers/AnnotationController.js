@@ -30,7 +30,7 @@ module.exports = {
     async delete(req, res) {
         // este é o id que vem na rota mandada pelo front, se pega ele de req.params
         const { id } = req.params;
-
+        // _id é o nome do id que o mongodb gera automático, então estou buscando esse _id que seja igual ao id q estou pegando de req.params
         const annotationDeleted = await Annotations.findOneAndDelete({ _id : id });
 
         if (annotationDeleted) {
