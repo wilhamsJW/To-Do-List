@@ -16,5 +16,6 @@ const routes = express.Router();
 
 routes.post('/annotation', AnnotationController.create);
 routes.get('/annotation', AnnotationController.read);
+routes.delete('/annotation/:id', AnnotationController.delete);
 
 module.exports = routes;
