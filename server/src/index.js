@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = require('./routes');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 
 const app = express();
@@ -11,6 +12,10 @@ mongoose.connect("mongodb+srv://usuario:usuario@cluster0.xkef2.mongodb.net/annot
     useNewUrlParser: true,   //essa duas linhas são configurações do mongodb e para evitar uns avisos no terminal
     useUnifiedTopology: true,
 })
+
+// Para comunucação entre front e back, caso não esteja isntalado o fron no console irá dá erro no console
+// obs: deve ficar antes do: "app.use(express.json());"  e do "app.use(routes);"
+app.use(cors())
 
 app.use(express.json());
 

@@ -48,4 +48,6 @@ PQ aconteceu isso? pq fui em package.json e adicionei nos scripts a seguinte lin
 5. `npm install mongoose`
 (mongoose facilita a criação de esquemas para o database mongoodb e facilita para criar registros, buscar registro e etc...)
 
+6. npm install cors -> responsável por fazer a comunicação entre o fronend e o backend
+
 
