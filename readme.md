@@ -4,7 +4,9 @@ To do list se trata de uma lista de tarefas de coisas que precisam ser feitas on
 Projeto Completo Com Node.JS e  React.JS  Utilizando a famosa Stack MERN: 
 `*MongoDB + Express + React JS + Node JS*`
 
-### Tela Principal - Desktop
+<!-- ### Tela Principal - Desktop
+ -->
+ <h1 align="center">Tela Principal - Desktop</h1>
 
  <p align="center">
   <img src="frontend/src/assets/to_readme/tela_principal.png" width="600px">
