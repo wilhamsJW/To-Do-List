@@ -9,12 +9,12 @@ function Notes({ data }) {
                 <div>
                     <strong>{data.title}</strong>
                     <div>
-                        <AiTwotoneDelete />
+                        <AiTwotoneDelete size='24' />
                     </div>
                 </div>
 
                 <textarea defaultValue={data.notes} ></textarea>
-                <span><AiOutlineExclamationCircle /></span>
+                <span><AiOutlineExclamationCircle size='24' /></span>
 
             </li>
         </>
