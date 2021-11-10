@@ -20,6 +20,7 @@ li.notpad-infos {
     box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: 20px 20px 10px 20px;
+    list-style: none;
 }
 
 li.notpad-infos strong {
@@ -49,6 +50,10 @@ li.notpad-infos textarea {
     border: 0;
     background: #fff;
     resize: none;/* impede de redimensionar o textarea */
+}
+
+li.notpad-infos textarea:hover {
+    cursor: default;
 }
 
 li.notpad-infos span {

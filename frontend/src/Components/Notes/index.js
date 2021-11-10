@@ -1,10 +1,13 @@
 import React from 'react';
 import { AiTwotoneDelete, AiOutlineExclamationCircle } from "react-icons/ai";
 
+import './style.css'
+import './styles-priority.css'
+
 function Notes({ data }) {
     return (
         <>
-            <li className="notpad-infos">
+            <li className={data.priority ? "notpad-infos-priority" : "notpad-infos"}>
 
                 <div>
                     <strong>{data.title}</strong>
@@ -14,7 +17,7 @@ function Notes({ data }) {
                 </div>
 
                 <textarea defaultValue={data.notes} ></textarea>
-                <span><AiOutlineExclamationCircle size='24' /></span>
+                <span title="Voce pode editar o card e deletar"><AiOutlineExclamationCircle size='24' /></span>
 
             </li>
         </>

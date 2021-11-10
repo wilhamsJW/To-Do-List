@@ -84,6 +84,7 @@ function App() {
               required
               value={title}
               onChange={e => setTitle(e.target.value)}
+              maxLength="30"
             />
           </div>
 
@@ -94,6 +95,7 @@ function App() {
               placeholder="Cumprir com reunião ás..."
               value={notes}
               onChange={e => setNotes(e.target.value)}
+              maxLength="180"
             >
             </textarea>
           </div>
