@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    height: 100%; /*temos q coloar essa altura padrão pq o browser só me dá a largura de 100% e não a altura*/
+}
+
+body {
+    background: #e4e7ef;
+    --webkit-font-smoothing:antialiased;
+    /* --webkit-font-smoothing:antialiased; -> serve para deixar as fontes mais bonitas e mais brilhantes e com uma melhor estilização */
+}
+
+/* As fonts do body só pertecem ao body, elementos internos como input etc... não herdam
+a font do body por isso q temos q especificar essa font de forma direta */
+/* Roboto definida no html e pega em fontsgoogle.com, sans-serif só entra se o link quebrar por algum motivo extra */
+body, input, button, textarea {
+    font-family: Roboto, sans-serif;
+}
+
+/* Essa configuração global é necessário pq o próprio browser acaba setando essas propriedades */
