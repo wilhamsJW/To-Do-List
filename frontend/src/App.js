@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import api from './services/api'
 
 import './App.css'
 import './global.css'
@@ -7,26 +9,93 @@ import './main.css'
 import Notes from './Components/Notes'
 
 function App() {
+
+  const [title, setTitle] = useState('');
+  const [notes, setNotes] = useState('');
+  const [allNotes, setAllNotes] = useState([]); // inicializado como array pq ele é um array de informações q irá receber a resposta do servidor ou do db, note abaixo q ele recebe response.data q é a resposta do servidor
+
+  // Fazendo a função dentro do UseEffect() a página não carrega novamente se houver alguma alteração
+  // na página feito pelo usuário, por ex: se o usuário add uma nova nota, essa nova nota não irá aparecer automáticamente na tela 
+  // pois isso daria um refresh na página enão é isso que queremos, iremos setar na função handlesubmit() algo dessa forma:
+  // setAllNotes([ ...allNotes, response.data ]) 
+  // -> isso quer dizer que '...allNotes' -> irá repetir todos os valores já existentes
+  // response.data -> está adicionando os novos valores existentes sem a necessidade de dá refresh na página
+  // useEffect(() tbm previne que a página fique fazendo request o tempo todo, se tirar o useEffect(() e deixar só a chamada
+  // vai ficar fazendo um request atrás do outro
+  useEffect(() => {
+
+    async function getAllNotes() {
+
+      const response = await api.get('/annotation',);
+
+      setAllNotes(response.data.annotationList)
+
+    }
+
+    // É preciso executar a função
+    getAllNotes()
+
+ }, [])
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const response = await api.post('/annotation', {
+      title,
+      notes,
+      priority: false
+    })
+
+    setTitle('')
+    setNotes('')
+
+    // explicações sobre essa linha no comentário acima
+    setAllNotes([ ...allNotes, response.data ])
+  }
+
+  useEffect(() => {
+
+    function enableSubmitButton() {
+      let btn = document.getElementById('btn_submit');
+      btn.style.background = '#ffd3ca'
+
+      if (title && notes) {
+      btn.style.background = '#eb8f7a'
+
+      }
+    }
+    enableSubmitButton();
+  }, [title, notes]) // é necessário passar as dependecias aqui no '[]' pq estão sendo usadas na função exatamente no if
+
   return (
 
     <div id="app">
 
       <aside>
         <strong>Caderno de Notas</strong>
-        <form>
+        <form onSubmit={handleSubmit}>
 
           <div className="input-block">
             <label htmlFor="title" placeholder="Reunião da Empresa">Título da Anotação</label>
-            <input />
+            <input
+              required
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+            />
           </div>
 
           <div className="input-block">
             <label htmlFor="title">Anotações</label>
-            <textarea placeholder="Cumprir com reunião ás..."></textarea>
-            <input />
+            <textarea
+              required
+              placeholder="Cumprir com reunião ás..."
+              value={notes}
+              onChange={e => setNotes(e.target.value)}
+            >
+            </textarea>
           </div>
 
-          <button type="submit">Salvar</button>
+          <button id="btn_submit" type="submit">Salvar</button>
 
         </form>
 
@@ -34,10 +103,9 @@ function App() {
 
       <main>
         <ul>
-          <Notes />
-          <Notes />
-          <Notes />
-          <Notes />
+          {allNotes.map(data => (
+             <Notes data={data} />
+          ))}
         </ul>
       </main>
     </div>

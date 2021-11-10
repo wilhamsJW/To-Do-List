@@ -9,6 +9,10 @@ module.exports = {
     async read(req, res) {
         const annotationList = await Annotations.find();
         return res.json({ annotationList })
+        // { annotationList } -> Colocar essa chaves em volta do array vai fazer com que o array fique com uma chave englobando todos
+        // os outros arrays e no front terá q acessar além do data o annotationList dessa forma:
+        // "response.data.annotationList" poderia se acessar apenas assim: "response.data", então não 
+        // há necessidade alguma de colocar chaves em volta da resposta do json
     },
 
     // Inserir registros no db MongoDB

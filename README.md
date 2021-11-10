@@ -54,8 +54,10 @@ Obs: deve ficar antes do: "app.use(express.json());"  e do "app.use(routes);"
 
 ### Installation FrontEnd
 
-1. npx create-react-app frontend (Para criação do projeto e seus múdulos, dẽ o comando na raíz da pasta.)
+1. `npx create-react-app frontend` (Para criação do projeto e seus múdulos, dẽ o comando na raíz da pasta.)
 
-2. npm satart (para rodar o projeto)
+2. `npm satart` (para rodar o projeto)
+
+3. `npm install axios` (Cliente Http, em termos básicos serve para facilitar a comunicação do back com o front, está sendo configurado na pasta `services` e usado onde estiver havendo uma requisição)
 
 
