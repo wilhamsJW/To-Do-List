@@ -7,7 +7,7 @@ Projeto Completo Com Node.JS e  React.JS  Utilizando a famosa Stack MERN:
 ### Tela Principal - Desktop
 
  <p align="center">
-  <img src="frontend/src/assets/tela_principal.png" width="600px">
+  <img src="frontend/src/assets/to_readme/tela_principal.png" width="600px">
  </p>
 
 ## MongoDB Configuration database
