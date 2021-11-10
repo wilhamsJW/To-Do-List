@@ -60,3 +60,11 @@ li.notpad-infos span:hover {
     color: #eb8f7a;
     transition: 0.2s;
 }
+
+/* Medei queries */
+
+@media (max-width: 620px) {
+    main ul {
+        grid-template-columns: 1fr
+    }
+}

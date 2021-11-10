@@ -8,6 +8,12 @@ aside {
   /* position: fixed; */
 }
 
+@media (max-width: 990px) {
+  aside {
+    position: relative;
+  } 
+}
+
 aside strong {
   font-size: 20px;
   text-align: center;
