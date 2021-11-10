@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiTwotoneDelete, AiOutlineExclamationCircle } from "react-icons/ai";
 
 function Notes({ data }) {
     return (
@@ -8,12 +9,12 @@ function Notes({ data }) {
                 <div>
                     <strong>{data.title}</strong>
                     <div>
-                        X
+                        <AiTwotoneDelete />
                     </div>
                 </div>
 
                 <textarea defaultValue={data.notes} ></textarea>
-                <span>!</span>
+                <span><AiOutlineExclamationCircle /></span>
 
             </li>
         </>

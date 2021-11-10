@@ -60,4 +60,9 @@ Obs: deve ficar antes do: "app.use(express.json());"  e do "app.use(routes);"
 
 3. `npm install axios` (Cliente Http, em termos básicos serve para facilitar a comunicação do back com o front, está sendo configurado na pasta `services` e usado onde estiver havendo uma requisição)
 
+4. `npm install @material-ui/core` (Lib para ajuda na estilização mas aqui só foi usada para os button do type radio)
+
+5. `npm install react-icons --save` (para habilitar ícones do proóprio react) 
+   `https://react-icons.github.io/react-icons` 
+
 

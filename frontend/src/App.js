@@ -7,6 +7,7 @@ import './global.css'
 import './main.css'
 
 import Notes from './Components/Notes'
+import RadioButton from './Components/RadioButton'
 
 function App() {
 
@@ -53,6 +54,8 @@ function App() {
     setAllNotes([ ...allNotes, response.data ])
   }
 
+  // Setando valores para alterar a cor do botão para quando não tiver todos os campos
+  // preenchidos o botão fique com uma certa opacidade
   useEffect(() => {
 
     function enableSubmitButton() {
@@ -98,6 +101,7 @@ function App() {
           <button id="btn_submit" type="submit">Salvar</button>
 
         </form>
+        <RadioButton />
 
       </aside>
 
