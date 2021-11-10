@@ -1,0 +1,76 @@
+main {
+    flex: 1;
+    margin-left: 150px;
+}
+
+main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20px;
+    margin-top: 28px;
+}
+
+li.notpad-infos-priority div {
+    display: flex;
+    justify-content: space-between;
+}
+
+li.notpad-infos-priority {
+    background: #f3c6bb;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px 20px 10px 20px;
+    list-style: none;
+}
+
+li.notpad-infos-priority strong {
+    display: block;
+    font-size: 16px;
+    color: #fff;
+}
+
+li.notpad-infos-priority div div {
+    color: #e79a89;
+    cursor: pointer;
+}
+
+li.notpad-infos-priority div div:hover {
+    color: #e74926;
+    transition: 0.2s;
+}
+
+li.notpad-infos-priority textarea {
+    padding: 7px;
+    margin-top: 7px;
+    margin-bottom:5px;
+    width: 100%;
+    height: 130px;
+    font-size: 14px;
+    color: #fff;
+    border: 0;
+    background: #eb8f7a;
+    border-radius:6px;
+    resize: none;/* impede de redimensionar o textarea */
+}
+
+li.notpad-infos-priority textarea:hover {
+    cursor: default;
+}
+
+li.notpad-infos-priority span {
+    color: rgb(219, 219, 21);
+    cursor: pointer;
+}
+
+li.notpad-infos-priority span:hover {
+    color: rgb(250, 250, 4);
+    transition: 0.2s;
+}
+
+/* Medei queries */
+
+@media (max-width: 620px) {
+    main ul {
+        grid-template-columns: 1fr
+    }
+}
