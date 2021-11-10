@@ -10,6 +10,18 @@ Projeto Completo Com Node.JS e  React.JS  Utilizando a famosa Stack MERN:
   <img src="frontend/src/assets/to_readme/tela_principal.png" width="600px">
  </p>
 
+ ### Tela Principal - Mobile
+
+ <p align="center">
+  <img src="frontend/src/assets/to_readme/tela_principal_mobile.png" width="600px">
+ </p>
+
+  ### Tela Principal - Mobile Conteúdo
+
+ <p align="center">
+  <img src="frontend/src/assets/to_readme/tela_principal_mobile_dois.png" width="600px">
+ </p>
+
 ## MongoDB Configuration database
 
 1. Acesse o site oficial do MongoDb e se cadastre
