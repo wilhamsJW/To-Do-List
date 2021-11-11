@@ -55,11 +55,16 @@ function App() {
  }
 
  async function handleChangePriority(id) {
+
     const note = await api.post(`/priority/${id}`); 
-    if (note) {
+    console.log('note', note);
+    if (note && selectedValue !== 'all') {
       // Atualizando os cards para q atualiza a tela com card de prioridade, q é um destaque css
       // getAllNotes()
-    } 
+      loadNotes(selectedValue)
+    } else if(note) {
+      getAllNotes();
+    }
  }
 
   async function handleSubmit(e) {
