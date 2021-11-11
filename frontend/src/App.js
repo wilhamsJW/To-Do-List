@@ -79,8 +79,17 @@ function App() {
     setTitle('')
     setNotes('')
 
-    // explicações sobre essa linha no comentário acima
-    setAllNotes([ ...allNotes, response.data ])
+    // Validação para que quando o user clik em salvar nova nota deve-se mostrar todas as notas
+    if (selectedValue !== 'all') {
+      getAllNotes();
+    } else {
+      // explicações sobre essa linha no comentário acima
+      setAllNotes([ ...allNotes, response.data ])
+    }
+    // Apenas para alternar o checked de volta para 'all' já que devido a validação acima
+    // o user estará vendo 'all' ou todos os cards
+    setSelectedValue('all');
+    
   }
 
   // Setando valores para alterar a cor do botão para quando não tiver todos os campos
