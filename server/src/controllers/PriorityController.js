@@ -5,7 +5,10 @@ module.exports = {
     async read(req, res) {
 
         const priority = req.query;
-        // Buscque onde priority for igual a priority, dessa forma eu não trago todos os registros e sim só o que a busca manda
+        // Busque onde priority for igual a priority, dessa forma eu não trago todos os registros e sim só o que a busca manda
+        // Annotations.find(priority) -> me trás todos com a 'priority' especificada pelo front
+        // temos 3: 'all ou todos', 'priority' e 'false', dessa forma ao user clikar no front
+        // e escolher ver todos, normal ou prioridade ele receberá esses itens
         const priorityNotes = await Annotations.find(priority);
 
         return res.json(priorityNotes);

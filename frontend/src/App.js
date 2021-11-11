@@ -14,6 +14,7 @@ function App() {
   const [title, setTitle] = useState('');
   const [notes, setNotes] = useState('');
   const [allNotes, setAllNotes] = useState([]); // inicializado como array pq ele é um array de informações q irá receber a resposta do servidor ou do db, note abaixo q ele recebe response.data q é a resposta do servidor
+  const [selectedValue, setSelectedValue] = useState('all');
 
   // Fazendo a função dentro do UseEffect() a página não carrega novamente se houver alguma alteração
   // na página feito pelo usuário, por ex: se o usuário add uma nova nota, essa nova nota não irá aparecer automáticamente na tela 
@@ -57,7 +58,7 @@ function App() {
     const note = await api.post(`/priority/${id}`); 
     if (note) {
       // Atualizando os cards para q atualiza a tela com card de prioridade, q é um destaque css
-      getAllNotes()
+      // getAllNotes()
     } 
  }
 
@@ -93,6 +94,25 @@ function App() {
     enableSubmitButton();
   }, [title, notes]) // é necessário passar as dependecias aqui no '[]' pq estão sendo usadas na função exatamente no if
 
+  // Verifica se a prioridade é true, false ou all(todos), pq quando o user clikar nos raddioButtons
+  // deverá selecionar para vers os cards q ele quer ver como: todos, normal ou prioridade
+  async function loadNotes(option) {
+    const params = { priority: option }
+    const response = await api.get('/priority', { params })
+
+    if (response) setAllNotes(response.data)
+  }
+
+  function handleChange(e) {
+    setSelectedValue(e.value);
+
+    // Se for true ou false irá chamar a função loadNotes() que me devolverá todos os itens com card true ou false
+    // se for all chamo a função getAllNotes() e me trás todos os itens sem seleção alguma
+    if (e.checked && e.value != 'all') loadNotes(e.value)
+    else { getAllNotes() }
+
+  }
+
   return (
 
     <div id="app">
@@ -126,7 +146,10 @@ function App() {
           <button id="btn_submit" type="submit">Salvar</button>
 
         </form>
-        <RadioButton />
+        <RadioButton
+          selectedValue={selectedValue}
+          handleChange={handleChange}
+        />
 
       </aside>
 
