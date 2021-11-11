@@ -8,10 +8,10 @@ module.exports = {
         const { id } = req.params;
 
         // Capturando o title e notes do corpo da requisição que foram enviadas pelo front
-        const { title, notes } = req.body;
+        const { notes } = req.body;
 
         // Somente se houver alterações enviadas em notes e title q eu altero algo no banco
-        if (notes || title) {
+        if (notes) {
 
             // Buscando no DB os dados que pertence ao 'id' enviado
             // _id é o nome do id que o mongodb gera automático, então estou buscando esse _id que seja igual ao id q estou pegando de req.params
@@ -19,13 +19,12 @@ module.exports = {
             var annotation = await Anootations.findOne({ _id: id });
 
             // Validação para impedir que salve algo no db sem alteração alguma
-            if (annotation.title === title && annotation.notes === notes) {
+            if (annotation.notes === notes) {
                 return res.json("Voçe não fez nenhuma alteração!");
             }
 
             // annotation.notes -> estou entrando no DB e setando notes ou seja notes é alteração enviada
             // que o usuário deseja q seja alterada
-            annotation.title = title;
             annotation.notes = notes;
 
             // Salvando as alterações
@@ -34,7 +33,7 @@ module.exports = {
         }
 
         // retornando a própra "annotation" atualizada
-        return !annotation ? res.json("Não há alterações a serem feita!") : res.json(annotation);
+        return !annotation ? res.json("Não há alterações a serem feita!") : res.json("Alteração feita com Sucesso!!!");
     }
 
 }

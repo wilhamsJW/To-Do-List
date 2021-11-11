@@ -80,7 +80,7 @@ Obs: deve ficar antes do: "app.use(express.json());"  e do "app.use(routes);"
 
 4. `npm install @material-ui/core` (Lib para ajuda na estilização mas aqui só foi usada para os button do type radio)
 
-5. `npm install react-icons --save` (para habilitar ícones do proóprio react) 
+5. `npm install react-icons --save` (para habilitar ícones do próprio react) 
    `https://react-icons.github.io/react-icons` 
 
 

@@ -29,6 +29,7 @@ function App() {
 
       const response = await api.get('/annotation',);
 
+      // Recebe todas as anotações a serem exibidas na tela
       setAllNotes(response.data.annotationList)
 
     }
@@ -37,6 +38,19 @@ function App() {
     getAllNotes()
 
  }, [])
+
+ async function handleDelete(id) {
+   const deletedNote = await api.delete(`/annotation/${id}`);
+
+   if (deletedNote) {
+    //  Responsável por me trazer todos os itens diferente da id excluída, então só irá trazer 
+    //  id's existentes
+    // Para isso usamos setAllNotes() q é reponsável por setar a variável chamada allNotes
+    // Dessa forma atualizamos allNotes na página pois é ele q está exibindo as informações
+    // abaixo ele é enviado ao < Notes />
+     setAllNotes(allNotes.filter(allNotes => allNotes._id !== id));
+   }
+ }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -110,7 +124,11 @@ function App() {
       <main>
         <ul>
           {allNotes.map(data => (
-             <Notes data={data} />
+             <Notes 
+                key={data._id}
+                data={data}
+                handleDelete={handleDelete}
+              />
           ))}
         </ul>
       </main>
