@@ -24,20 +24,21 @@ function App() {
   // useEffect(() tbm previne que a página fique fazendo request o tempo todo, se tirar o useEffect(() e deixar só a chamada
   // vai ficar fazendo um request atrás do outro
   useEffect(() => {
-
-    async function getAllNotes() {
-
-      const response = await api.get('/annotation',);
-
-      // Recebe todas as anotações a serem exibidas na tela
-      setAllNotes(response.data.annotationList)
-
-    }
-
     // É preciso executar a função
     getAllNotes()
+    
+  }, [])
+  
+  // Retirada a função getAllNotes() de dentro do useEffect() pq vou usala em outro local
+  // no handleDelete() mas ela está sendo chamada dentro do useEffect() e não irá impactar na aplicação
+  async function getAllNotes() {
 
- }, [])
+    const response = await api.get('/annotation',);
+
+    // Recebe todas as anotações a serem exibidas na tela
+    setAllNotes(response.data.annotationList)
+
+  }
 
  async function handleDelete(id) {
    const deletedNote = await api.delete(`/annotation/${id}`);
@@ -50,6 +51,14 @@ function App() {
     // abaixo ele é enviado ao < Notes />
      setAllNotes(allNotes.filter(allNotes => allNotes._id !== id));
    }
+ }
+
+ async function handleChangePriority(id) {
+    const note = await api.post(`/priority/${id}`); 
+    if (note) {
+      // Atualizando os cards para q atualiza a tela com card de prioridade, q é um destaque css
+      getAllNotes()
+    } 
  }
 
   async function handleSubmit(e) {
@@ -128,6 +137,7 @@ function App() {
                 key={data._id}
                 data={data}
                 handleDelete={handleDelete}
+                handleChangePriority={handleChangePriority}
               />
           ))}
         </ul>

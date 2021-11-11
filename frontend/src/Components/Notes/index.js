@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
-import { AiTwotoneDelete, AiOutlineExclamationCircle } from "react-icons/ai";
+import React, { useState } from 'react';
+import { AiTwotoneDelete, AiOutlineExclamationCircle, AiTwotoneSwitcher } from "react-icons/ai";
 
 import api from "../../services/api"
 
 import './styles-priority.css'
 
-function Notes({ data, handleDelete }) {
+function Notes({ data, handleDelete, handleChangePriority }) {
 
-    const [ changedNote, setChangedNote ] = useState('')
+    const [changedNote, setChangedNote] = useState('')
 
     // Edição das notas
     async function handleSave(e, notes) {
@@ -45,21 +45,31 @@ function Notes({ data, handleDelete }) {
                 <div>
                     <strong>{data.title}</strong>
                     <div>
-                        <AiTwotoneDelete 
+                        <AiTwotoneDelete
                             size='24'
                             title="Excluir"
-                            onClick={() => handleDelete(data._id)} 
+                            onClick={() => handleDelete(data._id)}
                         />
                     </div>
                 </div>
 
-                <textarea 
+                <textarea
                     defaultValue={data.notes}
                     onChange={e => setChangedNote(e.target.value)}
-                    onBlur={e => handleSave(e.target, data.notes)} 
+                    onBlur={e => handleSave(e.target, data.notes)}
                     onClick={e => handleEdit(e.target, data.priority)}
                 />
-                <span title="Edite o card e clik fora para salvar."><AiOutlineExclamationCircle size='24' /></span>
+                <span title="Edite o card e clik fora para salvar.">
+                    <AiOutlineExclamationCircle
+                        size='24'
+                    />
+                </span>
+                <span title="Altere a prioridade.">
+                    <AiTwotoneSwitcher
+                        size='24'
+                        onClick={() => handleChangePriority(data._id)}
+                    />
+                </span> 
 
             </li>
         </>
