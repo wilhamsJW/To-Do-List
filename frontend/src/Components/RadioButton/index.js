@@ -21,7 +21,7 @@ export default function RadioButton({ selectedValue, handleChange }) {
           onChange={e => handleChange(e.target)}
           value='all'
         />
-        <span>Todos</span>
+        <span>All</span>
       </div>
 
       <div>
@@ -30,7 +30,7 @@ export default function RadioButton({ selectedValue, handleChange }) {
           onChange={e => handleChange(e.target)}
           value='true'
         />
-        <span>Prioridade</span>
+        <span>Priority</span>
       </div>
 
       <div>

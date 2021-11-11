@@ -27,9 +27,9 @@ function App() {
   useEffect(() => {
     // É preciso executar a função
     getAllNotes()
-    
+
   }, [])
-  
+
   // Retirada a função getAllNotes() de dentro do useEffect() pq vou usala em outro local
   // no handleDelete() mas ela está sendo chamada dentro do useEffect() e não irá impactar na aplicação
   async function getAllNotes() {
@@ -41,31 +41,31 @@ function App() {
 
   }
 
- async function handleDelete(id) {
-   const deletedNote = await api.delete(`/annotation/${id}`);
+  async function handleDelete(id) {
+    const deletedNote = await api.delete(`/annotation/${id}`);
 
-   if (deletedNote) {
-    //  Responsável por me trazer todos os itens diferente da id excluída, então só irá trazer 
-    //  id's existentes
-    // Para isso usamos setAllNotes() q é reponsável por setar a variável chamada allNotes
-    // Dessa forma atualizamos allNotes na página pois é ele q está exibindo as informações
-    // abaixo ele é enviado ao < Notes />
-     setAllNotes(allNotes.filter(allNotes => allNotes._id !== id));
-   }
- }
+    if (deletedNote) {
+      //  Responsável por me trazer todos os itens diferente da id excluída, então só irá trazer 
+      //  id's existentes
+      // Para isso usamos setAllNotes() q é reponsável por setar a variável chamada allNotes
+      // Dessa forma atualizamos allNotes na página pois é ele q está exibindo as informações
+      // abaixo ele é enviado ao < Notes />
+      setAllNotes(allNotes.filter(allNotes => allNotes._id !== id));
+    }
+  }
 
- async function handleChangePriority(id) {
+  async function handleChangePriority(id) {
 
-    const note = await api.post(`/priority/${id}`); 
+    const note = await api.post(`/priority/${id}`);
     console.log('note', note);
     if (note && selectedValue !== 'all') {
       // Atualizando os cards para q atualiza a tela com card de prioridade, q é um destaque css
       // getAllNotes()
       loadNotes(selectedValue)
-    } else if(note) {
+    } else if (note) {
       getAllNotes();
     }
- }
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -84,12 +84,12 @@ function App() {
       getAllNotes();
     } else {
       // explicações sobre essa linha no comentário acima
-      setAllNotes([ ...allNotes, response.data ])
+      setAllNotes([...allNotes, response.data])
     }
     // Apenas para alternar o checked de volta para 'all' já que devido a validação acima
     // o user estará vendo 'all' ou todos os cards
     setSelectedValue('all');
-    
+
   }
 
   // Setando valores para alterar a cor do botão para quando não tiver todos os campos
@@ -101,7 +101,7 @@ function App() {
       btn.style.background = '#ffd3ca'
 
       if (title && notes) {
-      btn.style.background = '#eb8f7a'
+        btn.style.background = '#eb8f7a'
 
       }
     }
@@ -132,11 +132,11 @@ function App() {
     <div id="app">
 
       <aside>
-        <strong>Caderno de Notas</strong>
+        <strong>Notepad</strong>
         <form onSubmit={handleSubmit}>
 
           <div className="input-block">
-            <label htmlFor="title" placeholder="Reunião da Empresa">Título da Anotação</label>
+            <label htmlFor="title" placeholder="Reunião da Empresa">Annotation Title</label>
             <input
               required
               value={title}
@@ -146,10 +146,10 @@ function App() {
           </div>
 
           <div className="input-block">
-            <label htmlFor="title">Anotações</label>
+            <label htmlFor="title">Notes</label>
             <textarea
               required
-              placeholder="Cumprir com reunião ás..."
+              placeholder="Interview with Google..."
               value={notes}
               onChange={e => setNotes(e.target.value)}
               maxLength="180"
@@ -157,7 +157,7 @@ function App() {
             </textarea>
           </div>
 
-          <button id="btn_submit" type="submit">Salvar</button>
+          <button id="btn_submit" type="submit">Save</button>
 
         </form>
         <RadioButton
@@ -170,12 +170,12 @@ function App() {
       <main>
         <ul>
           {allNotes.map(data => (
-             <Notes 
-                key={data._id}
-                data={data}
-                handleDelete={handleDelete}
-                handleChangePriority={handleChangePriority}
-              />
+            <Notes
+              key={data._id}
+              data={data}
+              handleDelete={handleDelete}
+              handleChangePriority={handleChangePriority}
+            />
           ))}
         </ul>
       </main>
