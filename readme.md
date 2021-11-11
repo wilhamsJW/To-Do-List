@@ -22,6 +22,15 @@ Projeto Completo Com Node.JS e  React.JS  Utilizando a famosa Stack MERN:
   <img src="frontend/src/assets/to_readme/tela_principal_mobile_dois.png" width="600px">
  </p>
 
+ ### Functionalities
+
++ Create notes in the database (Criar registros no banco de dados)
++ Read notes in the database (Ler registros do banco de dados)
++ Update notes in the database (Atualizar registros do banco de dados)
++ Delete notes in the database (Excluir registros do banco de dados)
++ Option to select view all cards, view priority card only, or view normal card only (Opção de selecionar ver todos os cards, ver apenas card com prioridade ou ver apenas card normal) 
++ Option to prioritize card urgently (Opção para priorizar cartão com urgência)
+
 ## MongoDB Configuration database
 
 1. Acesse o site oficial do MongoDb e se cadastre
