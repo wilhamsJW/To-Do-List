@@ -79,6 +79,11 @@ Vá no index e adicone o cors com: `const cors = require('cors');`
 e depois use-o com: `app.use(cors());`
 Obs: deve ficar antes do: "app.use(express.json());"  e do "app.use(routes);"
 
+#### AVISO: Há um erro que costuma dá no servidor chamado `TextEncoder` e o erro mostra a pasta q ele fica dentro do node-modules, a pasta se chama `whatwg-url` e a próxima pasta é `dist` e o arquivo é encoding.js, np arquivo adicione a var: `var util= require('util');` e coloque ela antes do TextEncoder assim: 
+`const utf8Encoder = new util.TextEncoder();`
+`const utf8Decoder = new util.TextDecoder("utf-8", { ignoreBOM: true });`
+##### são duas const a serem alteradas
+
 ### Installation FrontEnd
 
 1. `npx create-react-app frontend` (Para criação do projeto e seus múdulos, dẽ o comando na raíz da pasta.)

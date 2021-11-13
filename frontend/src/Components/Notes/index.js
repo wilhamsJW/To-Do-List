@@ -17,7 +17,7 @@ function Notes({ data, handleDelete, handleChangePriority }) {
         e.style.boxShadow = 'none';
 
         if (e.value == notes) {
-            alert('Voce não fez nenhuma aleração!')
+            alert('Voce não fez nenhuma alteração!')
             notes = ''
             return
         } else {
